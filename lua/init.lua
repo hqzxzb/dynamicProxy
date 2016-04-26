@@ -12,19 +12,25 @@ redis_config = {
 	timeout = 15000;
 };
 
-
------URL二级目录动态代理-----
-
 --动态代理数据内存缓存
 --是否启用Nginx全局共享内存缓存代理数据（true/false）
 if_cache_proxy_data = true;
 --代理数据内存缓存失效时间（秒）--失效后重新从后台服务器获取
 proxy_shared_cache_timeout = 10;
+
+-----URL二级目录动态代理-----
+
 --Redis Key统一前缀
 url_proxy_prefix = "dp-url-proxy-";
 
 -----------------------------
 
+-----Cookie用户分组动态代理-----
+
+--Redis Key统一前缀
+user_group_proxy_prefix = "dp-user-group-proxy-";
+
+--------------------------------
 
 -----------------配置-----------------End
 
