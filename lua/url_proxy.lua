@@ -23,9 +23,9 @@ if not red then
 	log(ngx.ERR, "Get Redis connect failure, Please check the Redis Service !");
 else
 	--调用API获取数据
-	local resp, err = red:get(ngx.var.root_path);
+	local resp, err = red:get(url_proxy_prefix .. ngx.var.root_path);
 	if resp == ngx.null then
-		log(ngx.ERR, "get [", ngx.var.root_path, "] error : ", err);
+		log(ngx.ERR, "get [", url_proxy_prefix, ngx.var.root_path, "] error : ", err);
 	else 
 		proxy_url = resp;
 	end
