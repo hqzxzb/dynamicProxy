@@ -28,9 +28,9 @@ url_proxy_prefix = "dp-url-proxy-";
 
 -----------------------------
 
------Cookie用户分组动态代理-----
+-----Cookie用户标签动态代理-----
 
 --Redis Key统一前缀
-user_group_proxy_prefix = "dp-user-group-proxy-";
+user_proxy_prefix = "dp-user-proxy-";
 
 --------------------------------
