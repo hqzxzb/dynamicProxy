@@ -5,7 +5,7 @@ redis_config = {
 	--IP
 	ip = "127.0.0.1",
 	--Port
-	port = 6379;
+	port = "6379";
 	--链接超时时间（毫秒）
 	timeout = 15000;
 	
@@ -13,6 +13,17 @@ redis_config = {
 	pool_max_idle_timeout = 30000;
 	--连接池最大连接数（针对每个worker process）
 	pool_size = 30;
+	
+	
+	--是否使用了Redis Sentinel
+	--当此处配置为true时，ip和port参数所指向的地址为Redis Sentinel地址
+	isSentinel = false;
+	--Redis Sentinel中的master名称
+	masterName = "master1";
+	
+	--是否需要密码认证
+	isAuth = false;
+	password = "redis";
 };
 
 --动态代理数据内存缓存
