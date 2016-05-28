@@ -2,10 +2,16 @@
 
 --Redis服务
 redis_config = {
-	--IP
-	ip = "127.0.0.1",
-	--Port
-	port = "6379";
+	
+	-- Redis Deploy Type
+	-- Type List : Singleton, Sentinel 
+	deployType = "Sentinel";
+	
+	-- Address String format : 
+	-- If the deployType is 'Sentinel', the password is configured on the master redis server.
+	-- host1:port1:password1;host2:port2:password2;host3:port3:password3
+	addresses = "10.31.23.201:26379;10.31.23.201:26380";
+	
 	--链接超时时间（毫秒）
 	timeout = 15000;
 	
@@ -15,20 +21,14 @@ redis_config = {
 	pool_size = 30;
 	
 	
-	--是否使用了Redis Sentinel
-	--当此处配置为true时，ip和port参数所指向的地址为Redis Sentinel地址
-	isSentinel = false;
+	--当deployType配置为'Sentinel'时，需要在此处指定master名称用于通过Sentinel获取主节点
 	--Redis Sentinel中的master名称
 	masterName = "master1";
-	
-	--是否需要密码认证
-	isAuth = false;
-	password = "redis";
 };
 
 --动态代理数据内存缓存
 --是否启用Nginx全局共享内存缓存代理数据（true/false）
-if_cache_proxy_data = false;
+if_cache_proxy_data = true;
 --代理数据内存缓存失效时间（秒）--失效后重新从后台服务器获取
 proxy_shared_cache_timeout = 10;
 
